@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Night_Fall</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="./img/logo.png" alt="logo">
+        </div>
+        <div class="text">
+            <p>The Website is under <br> construction the future <br> of  web 3.0</p>
+            <h1>We're <span>Lunching </span> Soon!</h1>
+            <button class="learn-btn">Learn more <img src="/img/Vector.png" alt=""></button>
+        </div>
+        <div class="counter-div">
+            <div>
+                <p id="days"></p> <hr>
+                <span>Days</span> <hr>
+            </div>
+            <div>
+                <p id="hours"></p> <hr>
+                <span>Hours</span> <hr>
+            </div>
+            <div>
+                <p id="minutes"></p> <hr>
+                <span>Min</span><hr>
+            </div>
+            <div>
+                <p id="seconds"></p> <hr>
+                <span>Sec</span><hr>
+            </div>
+        </div>
+        <div class="bird-flying"> </div>
+    </div>
+    <script>
+
+        // var countDownDate = new Date("oct 1, 2022 00:00:00").gettime();
+        // var x = setInterval(function(){
+        //     var now = new Date().getTime();
+        //     var distance = countDownDate - now;
+        //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        //     document.getElementById("days").innerHTML = days;
+        //     document.getElementById("hours").innerHTML = hours;
+        //     document.getElementById("minutes").innerHTML = minutes;
+        //     document.getElementById("sec").innerHTML = seconds;
+
+        // },1000);
+       
+         let daysEl = document.getElementById("days");
+         let hoursEl   = document.getElementById("hours");
+         let minutesEl = document.getElementById("minutes");
+         let secondsEl = document.getElementById("seconds");
+        
+        // date counter from now to till 
+        const countDownDate = '9 July 2023';
+        //   funtion counter 
+        const countDown = () => {
+            const leftDate = new Date(countDownDate);
+
+            const currentDate = new Date();
+            const totalSeconds =(leftDate - currentDate) / 1000;
+            const days = Math.floor(totalSeconds / 3600 / 24);
+            const hours = Math.floor(totalSeconds / 3600) % 24;
+            const minutes = Math.floor(totalSeconds / 3600) % 60;
+            const seconds = Math.floor(totalSeconds) % 60;
+
+            // console.warn(days,hours,minutes,seconds);
+
+            daysEl.innerHTML =timeFormator(days) ;
+            hoursEl.innerHTML = timeFormator(hours);
+            minutesEl.innerHTML = timeFormator(minutes);
+            secondsEl.innerHTML = timeFormator(seconds);
+        }  
+
+        countDown()
+
+
+        function timeFormator (time){
+            return time < 10 ? `0${time}` : time;
+        }
+
+        // setInterval function 
+
+        setInterval(countDown,1000)
+
+    </script>
+</body>
+</html>
